@@ -284,3 +284,58 @@ Each bucket represents the number of batch commit operations that fall within a 
 
 By monitoring this metric, system operators can evaluate the efficiency of batch commit operations across different databases, optimize storage usage, and detect potential anomalies in database writes.
 
+## SCHEMADB BATCH COMMIT LATENCY
+### Metric: `schemadb_batch_commit_latency_seconds`
+
+**Description:**  
+The **SchemaDB Batch Commit Latency Metric** measures the time taken for batch commit operations in **SchemaDB**, recorded in **seconds**. This metric is represented as a **histogram**, enabling a detailed analysis of commit latency across different time intervals.
+
+Monitoring batch commit latency helps optimize database performance, identify slow write operations, and ensure efficient transaction processing.
+
+**Value Interpretation:**  
+Each bucket represents the number of batch commit operations completed within a given latency threshold for a specific database.
+
+### **Accessory Database (`accessory-db`)**
+| Latency Threshold (`le`) | Number of Commits |
+|-------------------------|------------------|
+| `≤ 0.001s`             | 11,967 commits  |
+| `≤ 0.002s`             | 12,018 commits  |
+| `≤ 0.004s`             | 12,040 commits  |
+| `≤ 0.008s`             | 12,048 commits  |
+| `+Inf`                 | 12,048 commits  |
+
+- **Total Processing Time:** `3.5006` seconds  
+- **Total Batch Commits:** `12,048`
+
+---
+
+### **Ledger Database (`ledger-db`)**
+| Latency Threshold (`le`) | Number of Commits |
+|-------------------------|------------------|
+| `≤ 0.001s`             | 11,995 commits  |
+| `≤ 0.002s`             | 12,030 commits  |
+| `≤ 0.004s`             | 12,044 commits  |
+| `≤ 0.008s`             | 12,047 commits  |
+| `+Inf`                 | 12,048 commits  |
+
+- **Total Processing Time:** `3.1032` seconds  
+- **Total Batch Commits:** `12,048`
+
+---
+
+### **State Database (`state-db`)**
+| Latency Threshold (`le`) | Number of Commits |
+|-------------------------|------------------|
+| `≤ 0.001s`             | 4,026 commits   |
+| `≤ 0.002s`             | 11,870 commits  |
+| `≤ 0.004s`             | 11,986 commits  |
+| `≤ 0.008s`             | 12,041 commits  |
+| `+Inf`                 | 12,048 commits  |
+
+- **Total Processing Time:** `14.0101` seconds  
+- **Total Batch Commits:** `12,048`
+
+---
+
+By tracking this metric, system administrators can identify performance bottlenecks in batch commit operations, optimize storage transactions, and ensure that commit latencies remain within acceptable limits.
+
