@@ -238,3 +238,49 @@ Each bucket represents the number of data writes that fall within the specified 
 
 By tracking this metric, system operators can monitor database write performance, optimize storage allocation, and detect potential inefficiencies in data insertion processes.
 
+## SCHEMADB BATCH COMMIT SIZE
+### Metric: `schemadb_batch_commit_bytes`
+
+**Description:**  
+The **SchemaDB Batch Commit Size Metric** measures the total **size of batch commit operations (in bytes)** for different databases within SchemaDB. This metric is recorded as a **histogram**, enabling the analysis of batch commit size distribution across different thresholds.
+
+Tracking this metric helps in evaluating database write efficiency, detecting anomalies in commit sizes, and optimizing storage performance.
+
+**Value Interpretation:**  
+Each bucket represents the number of batch commit operations that fall within a specific size range for a given database.
+
+### **Accessory Database (`accessory-db`)**
+| Batch Commit Size Threshold (`le`) | Number of Commits |
+|-----------------------------------|------------------|
+| `≤ 10 bytes`                      | 0 commits       |
+| `+Inf`                             | 12,048 commits  |
+
+- **Total Data Committed:** `144,576 bytes`  
+- **Total Batch Commits:** `12,048`
+
+---
+
+### **Ledger Database (`ledger-db`)**
+| Batch Commit Size Threshold (`le`) | Number of Commits |
+|-----------------------------------|------------------|
+| `≤ 10 bytes`                      | 0 commits       |
+| `+Inf`                             | 12,048 commits  |
+
+- **Total Data Committed:** `2,409,600 bytes`  
+- **Total Batch Commits:** `12,048`
+
+---
+
+### **State Database (`state-db`)**
+| Batch Commit Size Threshold (`le`) | Number of Commits |
+|-----------------------------------|------------------|
+| `≤ 10 bytes`                      | 0 commits       |
+| `+Inf`                             | 12,048 commits  |
+
+- **Total Data Committed:** `381,724,301 bytes`  
+- **Total Batch Commits:** `12,048`
+
+---
+
+By monitoring this metric, system operators can evaluate the efficiency of batch commit operations across different databases, optimize storage usage, and detect potential anomalies in database writes.
+
