@@ -481,3 +481,29 @@ Each bucket represents the number of data retrieval operations that fall within 
 
 By tracking this metric, system administrators can **optimize query execution**, reduce database response times, and maintain **high-performance data retrieval operations**.
 
+## SCHEMADB ITERATION LATENCY
+### Metric: `schemadb_iter_latency_seconds`
+
+**Description:**  
+The **SchemaDB Iteration Latency Metric** measures the **time taken (in seconds)** for database iteration operations across different **Column Families (CFs)**. This metric is recorded as a **histogram**, allowing analysis of the distribution of iteration latencies across different thresholds.
+
+Monitoring this metric helps evaluate the efficiency of database iterators, which are crucial for **querying large datasets efficiently**.
+
+**Value Interpretation:**  
+Each bucket represents the number of database iteration operations that fall within the specified latency threshold for a given column family.
+
+---
+
+### **Accepted Transactions (AcceptedTxs)**
+| Latency Threshold (`le`) | Number of Iterations |
+|--------------------------|----------------------|
+| `≤ 0.000001s`           | 1 iteration         |
+| `+Inf`                   | 1 iteration         |
+
+- **Total Iteration Time:** `0.000000805 seconds`  
+- **Total Iteration Operations:** `1`
+
+---
+
+By tracking this metric, system administrators can **identify performance bottlenecks**, optimize **query execution**, and maintain a **high-performance database iteration process**.
+
