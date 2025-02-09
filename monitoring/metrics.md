@@ -21,73 +21,34 @@ For ease of navigation, please refer to the **Table of Contents** below.
 
 ---
 
-## Request Duration
-
+## HTTP REQUEST LATENCY
 ### Metric: `prometheus_exporter_request_duration_seconds`
 
 **Description:**  
-Measures the **latency** of HTTP requests in **seconds**. This metric is recorded as a **histogram**, allowing analysis of response time distribution across different time intervals.
+The **HTTP Request Latency Metric** measures the time taken for HTTP requests to be processed by the Prometheus exporter. This metric is recorded as a **histogram**, allowing for the analysis of response time distribution across different time intervals.  
 
+Tracking request latency is crucial for identifying performance bottlenecks, ensuring system responsiveness, and diagnosing potential delays in HTTP request handling.  
 
-# HELP prometheus_exporter_request_duration_seconds HTTP request latency in seconds.
-# TYPE prometheus_exporter_request_duration_seconds histogram
-prometheus_exporter_request_duration_seconds_bucket{le="0.005"} 1
-prometheus_exporter_request_duration_seconds_bucket{le="0.01"} 1
-prometheus_exporter_request_duration_seconds_bucket{le="0.025"} 1
-prometheus_exporter_request_duration_seconds_bucket{le="0.05"} 1
-prometheus_exporter_request_duration_seconds_bucket{le="0.1"} 1
-prometheus_exporter_request_duration_seconds_bucket{le="0.25"} 1
-prometheus_exporter_request_duration_seconds_bucket{le="0.5"} 1
-prometheus_exporter_request_duration_seconds_bucket{le="1"} 1
-prometheus_exporter_request_duration_seconds_bucket{le="2.5"} 1
-prometheus_exporter_request_duration_seconds_bucket{le="5"} 1
-prometheus_exporter_request_duration_seconds_bucket{le="10"} 1
-prometheus_exporter_request_duration_seconds_bucket{le="+Inf"} 1
-prometheus_exporter_request_duration_seconds_sum 0.001
-prometheus_exporter_request_duration_seconds_count 1
+**Value Interpretation:**  
+Each bucket represents the number of requests that were processed within the specified duration threshold.  
 
-## Total Requests
+| Latency Threshold | Request Count |
+|------------------|--------------|
+| `≤ 0.005s`      | 4 requests   |
+| `≤ 0.01s`       | 4 requests   |
+| `≤ 0.025s`      | 4 requests   |
+| `≤ 0.05s`       | 4 requests   |
+| `≤ 0.1s`        | 4 requests   |
+| `≤ 0.25s`       | 4 requests   |
+| `≤ 0.5s`        | 4 requests   |
+| `≤ 1s`          | 4 requests   |
+| `≤ 2.5s`        | 4 requests   |
+| `≤ 5s`          | 4 requests   |
+| `≤ 10s`         | 4 requests   |
+| `+Inf`          | 4 requests   |
 
+- **Total Latency Time:** `0.000004638` seconds.  
+- **Total Number of Requests:** `4`.  
 
-Metric: prometheus_exporter_requests_total
-Description:
-Records the total number of HTTP requests received by the service.
-
-# HELP prometheus_exporter_requests_total Number of HTTP requests received.
-# TYPE prometheus_exporter_requests_total counter
-prometheus_exporter_requests_total 1
-
-## Batch Put Latency
-
-
-Metric: rockbound_batch_put_latency_seconds
-Description:
-Measures the latency of batch put operations in Rockbound Schema, reported in seconds.
-This metric is recorded as a histogram, allowing analysis of the distribution of batch put latencies across different time intervals.
-
-# HELP rockbound_batch_put_latency_seconds Rockbound schema batch put latency in seconds.
-# TYPE rockbound_batch_put_latency_seconds histogram
-rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="0.001"} 1017
-rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="0.002"} 1017
-rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="0.004"} 1017
-rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="0.008"} 1017
-rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="0.016"} 1017
-rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="0.032"} 1017
-rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="0.064"} 1017
-rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="0.128"} 1017
-rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="0.256"} 1017
-rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="0.512"} 1017
-rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="1.024"} 1017
-rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="2.048"} 1017
-rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="4.096"} 1017
-rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="8.192"} 1017
-rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="16.384"} 1017
-rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="32.768"} 1017
-rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="65.536"} 1017
-rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="131.072"} 1017
-rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="262.144"} 1017
-rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="524.288"} 1017
-rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="+Inf"} 1017
-rockbound_batch_put_latency_seconds_sum{db_name="unknown"} 0.0011603689999999999
-rockbound_batch_put_latency_seconds_count{db_name="unknown"} 1017
+Monitoring this metric helps optimize system performance by reducing high-latency responses and ensuring that request processing remains efficient.
 
