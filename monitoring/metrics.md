@@ -85,3 +85,43 @@ Tracking this metric is important for optimizing resource usage, identifying unu
 - **Current Response Size:** `37,821` bytes.
 
 By monitoring this metric, system operators can detect inefficient queries, optimize response payloads, and maintain a well-performing Prometheus instance.
+
+## BATCH PUT LATENCY
+### Metric: `rockbound_batch_put_latency_seconds`
+
+**Description:**  
+The **Batch Put Latency Metric** measures the time taken for **batch put operations** in the Rockbound Schema, recorded in **seconds**. This metric is represented as a **histogram**, allowing detailed analysis of latency distribution across different time intervals.  
+
+Monitoring batch put latency helps assess database performance, detect bottlenecks in data storage, and ensure that writes to the database remain efficient.
+
+**Value Interpretation:**  
+Each bucket represents the number of batch put operations completed within the specified latency threshold.
+
+| Latency Threshold (`le`) | Operations Completed |
+|-------------------------|----------------------|
+| `≤ 0.001s`             | 1,013,076 operations |
+| `≤ 0.002s`             | 1,013,078 operations |
+| `≤ 0.004s`             | 1,013,079 operations |
+| `≤ 0.008s`             | 1,013,079 operations |
+| `≤ 0.016s`             | 1,013,079 operations |
+| `≤ 0.032s`             | 1,013,079 operations |
+| `≤ 0.064s`             | 1,013,079 operations |
+| `≤ 0.128s`             | 1,013,079 operations |
+| `≤ 0.256s`             | 1,013,079 operations |
+| `≤ 0.512s`             | 1,013,079 operations |
+| `≤ 1.024s`             | 1,013,079 operations |
+| `≤ 2.048s`             | 1,013,079 operations |
+| `≤ 4.096s`             | 1,013,079 operations |
+| `≤ 8.192s`             | 1,013,079 operations |
+| `≤ 16.384s`            | 1,013,079 operations |
+| `≤ 32.768s`            | 1,013,079 operations |
+| `≤ 65.536s`            | 1,013,079 operations |
+| `≤ 131.072s`           | 1,013,079 operations |
+| `≤ 262.144s`           | 1,013,079 operations |
+| `≤ 524.288s`           | 1,013,079 operations |
+| `+Inf`                 | 1,013,079 operations |
+
+- **Total Processing Time:** `1.5866774699999884` seconds.  
+- **Total Batch Put Operations Count:** `1,013,079`.  
+
+By tracking this metric, system operators can identify slow write operations, optimize database performance, and ensure that the system efficiently handles batch data insertions.
