@@ -49,21 +49,87 @@ Each bucket in the histogram represents the number of requests with a duration *
 - **Total Count:**  
   - `prometheus_exporter_request_duration_seconds_count` represents the **total number of recorded requests**.
 
+
+## TOTAL REQUESTS
+
+### **Metric:** `prometheus_exporter_requests_total`
+
+#### **Description**  
+Records the **total number of HTTP requests** received by the service.
+
+#### **Value Interpretation**  
+- **Each increment in this counter** represents a new processed request.
+- **The absolute value of this metric** indicates the total number of requests since data collection started.
+
 #### **Example Prometheus Output**
 ```plaintext
-# HELP prometheus_exporter_request_duration_seconds The HTTP request latencies in seconds.
-# TYPE prometheus_exporter_request_duration_seconds histogram
-prometheus_exporter_request_duration_seconds_bucket{le="0.005"} 1
-prometheus_exporter_request_duration_seconds_bucket{le="0.01"} 1
-prometheus_exporter_request_duration_seconds_bucket{le="0.025"} 1
-prometheus_exporter_request_duration_seconds_bucket{le="0.05"} 1
-prometheus_exporter_request_duration_seconds_bucket{le="0.1"} 1
-prometheus_exporter_request_duration_seconds_bucket{le="0.25"} 1
-prometheus_exporter_request_duration_seconds_bucket{le="0.5"} 1
-prometheus_exporter_request_duration_seconds_bucket{le="1"} 1
-prometheus_exporter_request_duration_seconds_bucket{le="2.5"} 1
-prometheus_exporter_request_duration_seconds_bucket{le="5"} 1
-prometheus_exporter_request_duration_seconds_bucket{le="10"} 1
-prometheus_exporter_request_duration_seconds_bucket{le="+Inf"} 1
-prometheus_exporter_request_duration_seconds_sum 0.000001114
-prometheus_exporter_request_duration_seconds_count 1
+# HELP prometheus_exporter_requests_total Number of HTTP requests received.
+# TYPE prometheus_exporter_requests_total counter
+prometheus_exporter_requests_total 1
+
+## BATCH PUT LATENCY
+
+### **Metric:** `rockbound_batch_put_latency_seconds`
+
+#### **Description**  
+Measures the **latency** of batch put operations in Rockbound Schema, reported in **seconds**.  
+This metric is recorded as a **histogram**, allowing analysis of the distribution of batch put latencies across different time intervals.
+
+#### **Value Interpretation**  
+Each bucket in the histogram represents the number of batch put operations with a duration **less than or equal** to the specified threshold.
+
+| Threshold (`le`) | Number of Operations in Range |
+|-----------------|------------------------------|
+| `0.001s`       | 1017 operations               |
+| `0.002s`       | 1017 operations               |
+| `0.004s`       | 1017 operations               |
+| `0.008s`       | 1017 operations               |
+| `0.016s`       | 1017 operations               |
+| `0.032s`       | 1017 operations               |
+| `0.064s`       | 1017 operations               |
+| `0.128s`       | 1017 operations               |
+| `0.256s`       | 1017 operations               |
+| `0.512s`       | 1017 operations               |
+| `1.024s`       | 1017 operations               |
+| `2.048s`       | 1017 operations               |
+| `4.096s`       | 1017 operations               |
+| `8.192s`       | 1017 operations               |
+| `16.384s`      | 1017 operations               |
+| `32.768s`      | 1017 operations               |
+| `65.536s`      | 1017 operations               |
+| `131.072s`     | 1017 operations               |
+| `262.144s`     | 1017 operations               |
+| `524.288s`     | 1017 operations               |
+| `+Inf`         | 1017 operations               |
+
+- **Cumulative Metrics:**  
+  - `rockbound_batch_put_latency_seconds_sum` represents the **total time spent** processing batch put operations.
+  - `rockbound_batch_put_latency_seconds_count` represents the **total number of batch put operations recorded**.
+
+#### **Example Prometheus Output**
+```plaintext
+# HELP rockbound_batch_put_latency_seconds rockbound schema batch put latency in seconds
+# TYPE rockbound_batch_put_latency_seconds histogram
+rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="0.001"} 1017
+rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="0.002"} 1017
+rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="0.004"} 1017
+rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="0.008"} 1017
+rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="0.016"} 1017
+rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="0.032"} 1017
+rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="0.064"} 1017
+rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="0.128"} 1017
+rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="0.256"} 1017
+rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="0.512"} 1017
+rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="1.024"} 1017
+rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="2.048"} 1017
+rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="4.096"} 1017
+rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="8.192"} 1017
+rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="16.384"} 1017
+rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="32.768"} 1017
+rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="65.536"} 1017
+rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="131.072"} 1017
+rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="262.144"} 1017
+rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="524.288"} 1017
+rockbound_batch_put_latency_seconds_bucket{db_name="unknown",le="+Inf"} 1017
+rockbound_batch_put_latency_seconds_sum{db_name="unknown"} 0.0011603689999999999
+rockbound_batch_put_latency_seconds_count{db_name="unknown"} 1017
