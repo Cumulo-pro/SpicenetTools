@@ -339,3 +339,71 @@ Each bucket represents the number of batch commit operations completed within a 
 
 By tracking this metric, system administrators can identify performance bottlenecks in batch commit operations, optimize storage transactions, and ensure that commit latencies remain within acceptable limits.
 
+## SCHEMADB GET DATA SIZE
+### Metric: `schemadb_get_bytes`
+
+**Description:**  
+The **SchemaDB Get Data Size Metric** measures the **size of data (in bytes)** retrieved from different **Column Families (CFs)** in SchemaDB. This metric is recorded as a **histogram**, allowing analysis of the distribution of retrieved data sizes across different thresholds.
+
+Monitoring this metric helps evaluate query efficiency, optimize database read operations, and identify potential inefficiencies in data retrieval.
+
+**Value Interpretation:**  
+Each bucket represents the number of data retrieval operations that fall within the specified size threshold for a given column family.
+
+### **Finalized Slots**
+| Data Size Threshold (`le`) | Number of Reads |
+|---------------------------|----------------|
+| `≤ 10 bytes`              | 1 read        |
+| `+Inf`                    | 1 read        |
+
+- **Total Data Retrieved:** `8 bytes`  
+- **Total Read Operations:** `1`
+
+---
+
+### **Slot By Rollup Height**
+| Data Size Threshold (`le`) | Number of Reads |
+|---------------------------|----------------|
+| `≤ 10 bytes`              | 0 reads       |
+| `+Inf`                    | 12,048 reads  |
+
+- **Total Data Retrieved:** `1,445,760 bytes`  
+- **Total Read Operations:** `12,048`
+
+---
+
+### **Kernel JMT Nodes**
+| Data Size Threshold (`le`) | Number of Reads |
+|---------------------------|----------------|
+| `≤ 10 bytes`              | 0 reads       |
+| `+Inf`                    | 2,034,089 reads  |
+
+- **Total Data Retrieved:** `1,090,706,478 bytes`  
+- **Total Read Operations:** `2,034,089`
+
+---
+
+### **Kernel Key Hash to Key**
+| Data Size Threshold (`le`) | Number of Reads |
+|---------------------------|----------------|
+| `≤ 10 bytes`              | 0 reads       |
+| `+Inf`                    | 72,288 reads  |
+
+- **Total Data Retrieved:** `3,325,248 bytes`  
+- **Total Read Operations:** `72,288`
+
+---
+
+### **User JMT Nodes**
+| Data Size Threshold (`le`) | Number of Reads |
+|---------------------------|----------------|
+| `≤ 10 bytes`              | 0 reads       |
+| `+Inf`                    | 72,290 reads  |
+
+- **Total Data Retrieved:** `24,145,778 bytes`  
+- **Total Read Operations:** `72,290`
+
+---
+
+By tracking this metric, system administrators can monitor read performance, optimize database queries, and detect potential inefficiencies in data retrieval processes.
+
