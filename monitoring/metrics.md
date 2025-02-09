@@ -407,3 +407,77 @@ Each bucket represents the number of data retrieval operations that fall within 
 
 By tracking this metric, system administrators can monitor read performance, optimize database queries, and detect potential inefficiencies in data retrieval processes.
 
+## SCHEMADB GET LATENCY
+### Metric: `schemadb_get_latency_seconds`
+
+**Description:**  
+The **SchemaDB Get Latency Metric** measures the **time taken (in seconds)** for database read operations across different **Column Families (CFs)**. This metric is recorded as a **histogram**, allowing analysis of the distribution of read latencies across different thresholds.
+
+Monitoring this metric helps optimize database performance by identifying potential bottlenecks and ensuring efficient query execution.
+
+**Value Interpretation:**  
+Each bucket represents the number of data retrieval operations that fall within the specified latency threshold for a given column family.
+
+---
+
+### **Finalized Slots**
+| Latency Threshold (`le`) | Number of Reads |
+|--------------------------|----------------|
+| `≤ 0.000016s`           | 1 read        |
+| `+Inf`                   | 1 read        |
+
+- **Total Query Time:** `0.000013282 seconds`  
+- **Total Read Operations:** `1`
+
+---
+
+### **Slot By Rollup Height**
+| Latency Threshold (`le`) | Number of Reads |
+|--------------------------|----------------|
+| `≤ 0.000032s`           | 11,720 reads  |
+| `≤ 0.000064s`           | 12,029 reads  |
+| `+Inf`                   | 12,048 reads  |
+
+- **Total Query Time:** `0.218449514 seconds`  
+- **Total Read Operations:** `12,048`
+
+---
+
+### **Kernel JMT Nodes**
+| Latency Threshold (`le`) | Number of Reads |
+|--------------------------|----------------|
+| `≤ 0.000008s`           | 1,191,864 reads |
+| `≤ 0.000032s`           | 1,922,985 reads |
+| `+Inf`                   | 2,034,089 reads |
+
+- **Total Query Time:** `28.499756236 seconds`  
+- **Total Read Operations:** `2,034,089`
+
+---
+
+### **Kernel Key Hash to Key**
+| Latency Threshold (`le`) | Number of Reads |
+|--------------------------|----------------|
+| `≤ 0.000016s`           | 70,304 reads  |
+| `≤ 0.000032s`           | 72,045 reads  |
+| `+Inf`                   | 72,288 reads  |
+
+- **Total Query Time:** `0.526733777 seconds`  
+- **Total Read Operations:** `72,288`
+
+---
+
+### **User JMT Nodes**
+| Latency Threshold (`le`) | Number of Reads |
+|--------------------------|----------------|
+| `≤ 0.000032s`           | 69,792 reads  |
+| `≤ 0.000064s`           | 72,191 reads  |
+| `+Inf`                   | 72,290 reads  |
+
+- **Total Query Time:** `0.816024419 seconds`  
+- **Total Read Operations:** `72,290`
+
+---
+
+By tracking this metric, system administrators can **optimize query execution**, reduce database response times, and maintain **high-performance data retrieval operations**.
+
