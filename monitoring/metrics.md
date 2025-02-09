@@ -52,3 +52,19 @@ Each bucket represents the number of requests that were processed within the spe
 
 Monitoring this metric helps optimize system performance by reducing high-latency responses and ensuring that request processing remains efficient.
 
+## TOTAL HTTP REQUESTS
+### Metric: `prometheus_exporter_requests_total`
+
+**Description:**  
+The **Total HTTP Requests Metric** records the **total number of HTTP requests** received by the Prometheus exporter. This metric is a **counter**, meaning it only increases over time, reflecting the cumulative number of requests processed since the exporter started running.  
+
+Tracking this metric is essential for monitoring service demand, detecting unusual request spikes, and ensuring that the system can handle incoming traffic efficiently.
+
+**Value Interpretation:**  
+- **Each increment** in this counter represents a new processed request.
+- **The absolute value** of this metric indicates the total number of requests since data collection started.
+
+**Example Value:**  
+- **Total Requests Received:** `4`
+
+By monitoring this metric, operators can track system load, optimize resource allocation, and detect potential issues such as traffic surges or service disruptions.
