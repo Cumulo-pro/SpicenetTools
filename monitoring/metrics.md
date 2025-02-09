@@ -125,3 +125,116 @@ Each bucket represents the number of batch put operations completed within the s
 - **Total Batch Put Operations Count:** `1,013,079`.  
 
 By tracking this metric, system operators can identify slow write operations, optimize database performance, and ensure that the system efficiently handles batch data insertions.
+
+## ROCKBOUND PUT DATA SIZE
+### Metric: `rockbound_put_bytes`
+
+**Description:**  
+The **Rockbound Put Data Size Metric** measures the **size of data (in bytes)** written to different **Column Families (CFs)** in the Rockbound Schema. This metric is recorded as a **histogram**, allowing detailed analysis of the distribution of data sizes across different thresholds.
+
+Tracking this metric is essential for optimizing database performance, monitoring write efficiency, and ensuring storage is used effectively.
+
+**Value Interpretation:**  
+Each bucket represents the number of data writes that fall within the specified size threshold for a given column family.
+
+### **Finalized Slots**
+| Data Size Threshold (`le`) | Number of Writes |
+|---------------------------|------------------|
+| `≤ 10 bytes`              | 12,048 writes   |
+| `+Inf`                    | 12,048 writes   |
+
+- **Total Data Written:** `96,384 bytes`  
+- **Total Write Operations:** `12,048`
+
+---
+
+### **Slot By Hash**
+| Data Size Threshold (`le`) | Number of Writes |
+|---------------------------|------------------|
+| `≤ 10 bytes`              | 0 writes        |
+| `+Inf`                    | 12,048 writes   |
+
+- **Total Data Written:** `481,920 bytes`  
+- **Total Write Operations:** `12,048`
+
+---
+
+### **Slot By Rollup Height**
+| Data Size Threshold (`le`) | Number of Writes |
+|---------------------------|------------------|
+| `≤ 10 bytes`              | 0 writes        |
+| `+Inf`                    | 12,048 writes   |
+
+- **Total Data Written:** `1,542,144 bytes`  
+- **Total Write Operations:** `12,048`
+
+---
+
+### **Kernel JMT Nodes**
+| Data Size Threshold (`le`) | Number of Writes |
+|---------------------------|------------------|
+| `≤ 10 bytes`              | 0 writes        |
+| `+Inf`                    | 663,687 writes  |
+
+- **Total Data Written:** `339,904,913 bytes`  
+- **Total Write Operations:** `663,687`
+
+---
+
+### **Kernel JMT Values**
+| Data Size Threshold (`le`) | Number of Writes |
+|---------------------------|------------------|
+| `≤ 10 bytes`              | 0 writes        |
+| `+Inf`                    | 120,480 writes  |
+
+- **Total Data Written:** `11,397,408 bytes`  
+- **Total Write Operations:** `120,480`
+
+---
+
+### **Kernel Key Hash to Key**
+| Data Size Threshold (`le`) | Number of Writes |
+|---------------------------|------------------|
+| `≤ 10 bytes`              | 0 writes        |
+| `+Inf`                    | 120,480 writes  |
+
+- **Total Data Written:** `9,963,696 bytes`  
+- **Total Write Operations:** `120,480`
+
+---
+
+### **User JMT Nodes**
+| Data Size Threshold (`le`) | Number of Writes |
+|---------------------------|------------------|
+| `≤ 10 bytes`              | 0 writes        |
+| `+Inf`                    | 48,192 writes   |
+
+- **Total Data Written:** `14,216,640 bytes`  
+- **Total Write Operations:** `48,192`
+
+---
+
+### **User JMT Values**
+| Data Size Threshold (`le`) | Number of Writes |
+|---------------------------|------------------|
+| `≤ 10 bytes`              | 0 writes        |
+| `+Inf`                    | 12,048 writes   |
+
+- **Total Data Written:** `783,120 bytes`  
+- **Total Write Operations:** `12,048`
+
+---
+
+### **User Key Hash to Key**
+| Data Size Threshold (`le`) | Number of Writes |
+|---------------------------|------------------|
+| `≤ 10 bytes`              | 0 writes        |
+| `+Inf`                    | 12,048 writes   |
+
+- **Total Data Written:** `915,648 bytes`  
+- **Total Write Operations:** `12,048`
+
+---
+
+By tracking this metric, system operators can monitor database write performance, optimize storage allocation, and detect potential inefficiencies in data insertion processes.
+
