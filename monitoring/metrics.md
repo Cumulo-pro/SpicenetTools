@@ -14,10 +14,18 @@ For ease of navigation, please refer to the **Table of Contents** below.
 
 ## Table of Contents
 
-- [Request Duration](#request-duration)
-- [Total Requests](#total-requests)
+- [Introduction](#introduction)
+- [Request Duration](#http-request-latency)
+- [Total Requests](#total-http-requests)
+- [HTTP Response Size](#http-response-size)
 - [Batch Put Latency](#batch-put-latency)
-- [Prometheus Exporter Response Size](#prometheus-exporter-response-size)
+- [Rockbound Put Data Size](#rockbound-put-data-size)
+- [SchemaDB Batch Commit Size](#schemadb-batch-commit-size)
+- [SchemaDB Batch Commit Latency](#schemadb-batch-commit-latency)
+- [SchemaDB Get Data Size](#schemadb-get-data-size)
+- [SchemaDB Get Latency](#schemadb-get-latency)
+- [SchemaDB Iteration Latency](#schemadb-iteration-latency)
+
 
 ---
 
