@@ -15,16 +15,24 @@ For ease of navigation, please refer to the **Table of Contents** below.
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Request Duration](#http-request-latency)
-- [Total Requests](#total-http-requests)
-- [HTTP Response Size](#http-response-size)
-- [Batch Put Latency](#batch-put-latency)
-- [Rockbound Put Data Size](#rockbound-put-data-size)
-- [SchemaDB Batch Commit Size](#schemadb-batch-commit-size)
-- [SchemaDB Batch Commit Latency](#schemadb-batch-commit-latency)
-- [SchemaDB Get Data Size](#schemadb-get-data-size)
-- [SchemaDB Get Latency](#schemadb-get-latency)
-- [SchemaDB Iteration Latency](#schemadb-iteration-latency)
+- [Spicenet Node Metrics](#node-metrics)
+  - [LATEST ROLLUP HEIGHT](#latest-rollup-height)
+  - [LAST FINALIZED HEIGHT](#last-finalized-height)
+  - [ERROR COUNT](#error-count)
+  - [EXECUTION TIME](#execution-time)
+  - [EXECUTION BLOCK](#execution-block)
+- [Prometheus Metrics](#prometheus-metrics)
+  - [HTTP REQUEST LATENCY](#http-request-latency)
+  - [TOTAL HTTP REQUESTS](#total-http-requests)
+  - [HTTP RESPONSE SIZE](#http-response-size)
+  - [BATCH PUT LATENCY](#batch-put-latency)
+  - [ROCKBOUND PUT DATA SIZE](#rockbound-put-data-size)
+  - [SCHEMADB BATCH COMMIT SIZE](#schemadb-batch-commit-size)
+  - [SCHEMADB BATCH COMMIT LATENCY](#schemadb-batch-commit-latency)
+  - [SCHEMADB GET DATA SIZE](#schemadb-get-data-size)
+  - [SCHEMADB GET LATENCY](#schemadb-get-latency)
+  - [SCHEMADB ITERATION LATENCY](#schemadb-iteration-latency)
+
 
 ---
 
