@@ -221,6 +221,20 @@ Each bucket represents the number of batch put operations completed within the s
 
 By tracking this metric, system operators can identify slow write operations, optimize database performance, and ensure that the system efficiently handles batch data insertions.
 
+## AVERAGE BATCH PUT LATENCY  
+**Metric**: `rockbound_batch_put_latency_seconds_sum{job="$job"} / rockbound_batch_put_latency_seconds_count{job="$job"}`  
+**Description**:  
+The **AVERAGE BATCH PUT LATENCY** metric measures the average time taken for batch put operations in the Rockbound Schema. It is calculated by dividing the total sum of latencies (`rockbound_batch_put_latency_seconds_sum`) by the count of operations (`rockbound_batch_put_latency_seconds_count`). This provides the average latency per batch put operation in seconds.
+
+Monitoring this metric helps assess the overall efficiency of database write operations, identify performance bottlenecks in data storage, and ensure that the system remains efficient under varying workloads.
+
+**Value Interpretation**:  
+This metric gives the average time taken for all batch put operations over a specified period. A lower value suggests better performance, while a higher value may indicate delays or inefficiencies in the database write operations.
+
+**Example Value**:  
+`rockbound_batch_put_latency_seconds_sum{job="spicenet"} / rockbound_batch_put_latency_seconds_count{job="spicenet"} = 0.005 seconds`  
+
+
 ## ROCKBOUND PUT DATA SIZE
 ### Metric: `rockbound_put_bytes`
 
