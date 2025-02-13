@@ -92,3 +92,27 @@ sudo systemctl enable update_spicenet_metrics.service
 sudo systemctl start update_spicenet_metrics.service
 sudo systemctl enable --now update_spicenet_metrics.timer
 ```
+
+## Step 4: Verification  
+Verify the status of Node Exporter and the custom metrics service:  
+
+```bash
+sudo systemctl status node_exporter
+sudo systemctl status update_spicenet_metrics.service
+sudo systemctl status update_spicenet_metrics.timer
+```
+
+Check if the metrics are being collected correctly by accessing the Node Exporter URL:  
+
+```bash
+curl http://localhost:9100/metrics | grep spicenet
+```
+
+You should see the metrics like latest_rollup_height, execution_time, execution_block, etc., being exposed by Node Exporter.  
+
+## Step 5: Visualize Metrics in Grafana  
+Once the metrics are being collected correctly by Prometheus, you can create or import a Grafana dashboard to visualize these metrics.  
+
+Grafana Dashboard Configuration: Import or create a custom dashboard to visualize Spicenet metrics such as execution_time, execution_block, and latest_rollup_height.  
+That's it! You've successfully set up custom metrics monitoring for Spicenet using Node Exporter and Prometheus. You can now monitor Spicenet's key metrics and visualize them in Grafana. If you need any further assistance, feel free to reach out!  
+
