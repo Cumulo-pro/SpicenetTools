@@ -33,7 +33,7 @@ For ease of navigation, please refer to the **Table of Contents** below.
 ### LATEST ROLLUP HEIGHT  
 **Metric**: `latest_rollup_height`  
 **Description**:  
-The `latest_rollup_height` metric represents the most recent rollup height in Spicenet. This metric is a gauge, meaning it can increase or decrease over time, reflecting the dynamic changes in the rollup height during the operation of the Spicenet node.  
+The `latest_rollup_height` metric represents the most recent rollup height in Spicenet.  
 
 Tracking this metric is vital for understanding the current state of the rollup and ensuring that it is up to date with the latest blocks. It provides insight into the progress and health of the rollup, which is crucial for systems relying on up-to-date block heights.  
 
