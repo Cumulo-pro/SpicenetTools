@@ -28,7 +28,7 @@ For ease of navigation, please refer to the **Table of Contents** below.
 
 ---
 
-# Node metricas
+# Node metrics
 
 ### LATEST ROLLUP HEIGHT  
 **Metric**: `latest_rollup_height`  
