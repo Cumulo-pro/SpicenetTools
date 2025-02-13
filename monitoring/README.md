@@ -53,4 +53,5 @@ The system is designed to update the metrics periodically and automatically usin
 
 With these features, this project provides an efficient and effective solution for monitoring custom metrics of the Spicenet node, leveraging the capabilities of Prometheus and Node Exporter to enhance the monitoring and maintenance of your infrastructure.
 
-![image](https://github.com/user-attachments/assets/83bb8f1e-7188-47d3-b184-35565e9394dd)
+![image](https://github.com/user-attachments/assets/bae2763f-4eb4-445e-9c80-3bd5b0d234f7)
+
