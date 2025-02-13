@@ -26,8 +26,87 @@ For ease of navigation, please refer to the **Table of Contents** below.
 - [SchemaDB Get Latency](#schemadb-get-latency)
 - [SchemaDB Iteration Latency](#schemadb-iteration-latency)
 
+---
+
+# Node metricas
+
+### LATEST ROLLUP HEIGHT  
+**Metric**: `latest_rollup_height`  
+**Description**:  
+The `latest_rollup_height` metric represents the most recent rollup height in Spicenet. This metric is a gauge, meaning it can increase or decrease over time, reflecting the dynamic changes in the rollup height during the operation of the Spicenet node.  
+
+Tracking this metric is vital for understanding the current state of the rollup and ensuring that it is up to date with the latest blocks. It provides insight into the progress and health of the rollup, which is crucial for systems relying on up-to-date block heights.  
+
+**Value Interpretation**:  
+The value of this metric indicates the current height of the rollup. A higher value suggests the rollup is progressing forward with new block heights.
+
+**Example Value**:  
+`latest_rollup_height 131419`  
 
 ---
+
+### LAST FINALIZED HEIGHT  
+**Metric**: `last_finalized_height`  
+**Description**:  
+The `last_finalized_height` metric records the block height of the last finalized block in Spicenet. Like the previous metric, it is a gauge that reflects changes over time as new blocks are finalized.  
+
+Monitoring this metric is essential to ensure that the system is consistently processing blocks and finalizing them as expected. A sudden discrepancy between `latest_rollup_height` and `last_finalized_height` may indicate an issue with block finalization.
+
+**Value Interpretation**:  
+This value represents the height of the last block that was finalized. If this value is lower than the rollup height, it may suggest a delay or issue in finalizing blocks.
+
+**Example Value**:  
+`last_finalized_height 4672419`  
+
+---
+
+### ERROR COUNT  
+**Metric**: `error_count`  
+**Description**:  
+The `error_count` metric tracks the number of errors that have occurred in the Spicenet logs. It is a gauge that reflects the real-time count of errors, helping identify any issues or failures within the system.
+
+Monitoring error counts is crucial for ensuring system reliability and troubleshooting. A sudden spike in errors can indicate potential problems in the system that need attention.
+
+**Value Interpretation**:  
+Each increment represents one new error. A value of `0` suggests no errors, while higher values signal that more errors have been encountered.
+
+**Example Value**:  
+`error_count 1`  
+
+---
+
+### EXECUTION TIME  
+**Metric**: `execution_time`  
+**Description**:  
+The `execution_time` metric records the time taken to process the last block in Spicenet, measured in seconds. It is a gauge metric that tracks the processing time, helping identify performance bottlenecks or delays in block execution.
+
+This metric is useful for evaluating the system's processing efficiency and responsiveness. A sudden increase in execution time may indicate system strain or issues in processing.
+
+**Value Interpretation**:  
+The value represents the time taken for the latest block's execution in seconds. A lower value indicates faster processing, while a higher value might suggest slower performance or a need for optimization.
+
+**Example Value**:  
+`execution_time 4.836305857`  
+
+---
+
+### EXECUTION BLOCK  
+**Metric**: `execution_block`  
+**Description**:  
+The `execution_block` metric records the block height of the last completed execution in Spicenet. This is a gauge metric that provides insight into the progress of the system in completing block executions.
+
+Tracking this metric helps operators monitor the health of the node and ensure that block execution is happening consistently. It is important for verifying that the system is processing and executing blocks as expected.
+
+**Value Interpretation**:  
+This value represents the height of the last executed block. If the value is high and consistently increasing, it indicates that the system is processing blocks at a healthy rate.
+
+**Example Value**:  
+`execution_block 4672419`  
+
+
+---
+
+# Prometheus metrics
 
 ## HTTP REQUEST LATENCY
 ### Metric: `prometheus_exporter_request_duration_seconds`
