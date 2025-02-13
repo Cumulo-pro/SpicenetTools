@@ -48,12 +48,12 @@ The value of this metric indicates the current height of the rollup. A higher va
 ### LAST FINALIZED HEIGHT  
 **Metric**: `last_finalized_height`  
 **Description**:  
-The `last_finalized_height` metric records the block height of the last finalized block in Spicenet. Like the previous metric, it is a gauge that reflects changes over time as new blocks are finalized.  
+The `last_finalized_height` metric records the block height of the last finalized block in Spicenet, which corresponds to the last block in the Celestia chain. Like the previous metric, it is a gauge that reflects changes over time as new blocks are finalized.  
 
 Monitoring this metric is essential to ensure that the system is consistently processing blocks and finalizing them as expected. A sudden discrepancy between `latest_rollup_height` and `last_finalized_height` may indicate an issue with block finalization.
 
 **Value Interpretation**:  
-This value represents the height of the last block that was finalized. If this value is lower than the rollup height, it may suggest a delay or issue in finalizing blocks.
+This value represents the height of the last block that was finalized in the Celestia chain. If this value is lower than the rollup height, it may suggest a delay or issue in finalizing blocks.
 
 **Example Value**:  
 `last_finalized_height 4672419`  
