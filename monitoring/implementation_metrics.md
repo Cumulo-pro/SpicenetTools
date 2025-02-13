@@ -61,7 +61,7 @@ After=network.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/local/metrics/spicenet_metrics.sh
+ExecStart=/usr/local/bin/spicenet_metrics.sh
 
 [Install]
 WantedBy=multi-user.target
