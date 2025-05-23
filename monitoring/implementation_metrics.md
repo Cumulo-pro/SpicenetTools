@@ -17,7 +17,7 @@ sudo mkdir -p /usr/local/metrics
 Download the metrics script `spicenet_metrics.sh`. This bash script will extract desired metrics from Spicenet and save them in a Prometheus-compatible format. It will then be picked up by Node Exporter for exposure.  
 
 ```bash
-sudo wget https://raw.githubusercontent.com/Cumulo-pro/SpicenetTools/main/monitoring/spicenet_metrics.sh -O /usr/local/metrics/spicenet_metrics.sh
+sudo wget https://raw.githubusercontent.com/Cumulo-pro/SpicenetTools/main/monitoring/spicenet_metrics.sh -O /usr/local/bin/spicenet_metrics.sh
 ```
 
 ## Step 2: Set up Node Exporter Service  
