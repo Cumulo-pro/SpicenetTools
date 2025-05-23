@@ -28,7 +28,9 @@ fi
 
 # Get the execution time and convert it to a floating point number (remove 's')
 execution_time_raw=$(grep "Execution of block is completed" /var/log/spicenet.log | tail -1 | awk '{print $NF}' | cut -d'=' -f2)
-execution_time=$(echo $execution_time_raw | sed 's/s//')  # Remove the 's' suffix and convert to float
+# Remove any non-numeric suffix (like 'm', 's', 'ms') and ensure it's a float
+execution_time=$(echo "$execution_time_raw" | sed -E 's/[a-zA-Z]+$//' | sed 's/\x1b\[[0-9;]*m//g')
+
 execution_time=$(echo "$execution_time" | sed 's/\x1b\[[0-9;]*m//g')  # Remove control characters
 if [ -z "$execution_time" ]; then
     execution_time=0
