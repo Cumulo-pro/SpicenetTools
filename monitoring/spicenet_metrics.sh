@@ -17,10 +17,14 @@ sanitize_number() {
 latest_rollup_height=$(sanitize_number "$(grep 'Setting next visible rollup height' "$LOG_FILE" | tail -1 | awk -F '=' '{print $NF}')")
 last_finalized_height=$(sanitize_number "$(grep 'Got last finalized header' "$LOG_FILE" | tail -1 | awk -F '=' '{print $NF}')")
 error_count=$(sanitize_number "$(grep -c 'ERROR' "$LOG_FILE")")
-execution_time_raw=$(grep "Execution of block is completed" "$LOG_FILE" | tail -1 | awk -F '=' '{print $NF}')
-execution_time=$(sanitize_number "$execution_time_raw")
-execution_block_raw=$(grep "Execution of block is completed" "$LOG_FILE" | tail -1 | sed -n 's/.*height=\([0-9]*\).*/\1/p')
+
+# Extract last block execution height and time, cleaning ANSI codes
+last_execution_line=$(grep "Execution of block is completed" "$LOG_FILE" | tail -1 | sed 's/\x1b\[[0-9;]*m//g')
+execution_block_raw=$(echo "$last_execution_line" | awk -F 'height=' '{print $2}' | awk '{print $1}')
 execution_block=$(sanitize_number "$execution_block_raw")
+
+execution_time_raw=$(echo "$last_execution_line" | grep -oE 'time=[0-9.]+s' | sed 's/time=\(.*\)s/\1/')
+execution_time_seconds=$(sanitize_number "$execution_time_raw")
 
 # Start temp file
 > "$TEMP_FILE"
@@ -39,9 +43,9 @@ last_finalized_height $last_finalized_height
 # TYPE error_count gauge
 error_count $error_count
 
-# HELP execution_time Execution time of the last block
-# TYPE execution_time gauge
-execution_time $execution_time
+# HELP execution_time_seconds Execution time of the last block (in seconds)
+# TYPE execution_time_seconds gauge
+execution_time_seconds $execution_time_seconds
 
 # HELP execution_block Block height of the last completed execution
 # TYPE execution_block gauge
