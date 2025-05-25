@@ -20,11 +20,11 @@ error_count=$(sanitize_number "$(grep -c 'ERROR' "$LOG_FILE")")
 
 # Extract last block execution height and time, cleaning ANSI codes
 last_execution_line=$(grep "Execution of block is completed" "$LOG_FILE" | tail -1 | sed 's/\x1b\[[0-9;]*m//g')
+
 execution_block_raw=$(echo "$last_execution_line" | awk -F 'height=' '{print $2}' | awk '{print $1}')
 execution_block=$(sanitize_number "$execution_block_raw")
 
-execution_time_raw=$(echo "$last_execution_line" | grep -oE 'time=[0-9.]+s' | sed 's/time=\(.*\)s/\1/')
-execution_time_seconds=$(sanitize_number "$execution_time_raw")
+execution_time_seconds=$(echo "$last_execution_line" | grep -oE 'time=[0-9.]+s' | sed 's/[^0-9.]//g')
 
 # Start temp file
 > "$TEMP_FILE"
