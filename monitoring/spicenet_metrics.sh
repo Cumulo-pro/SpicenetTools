@@ -1,4 +1,4 @@
-E#!/bin/bash
+#!/bin/bash
 
 # Paths
 METRICS_FILE="/usr/local/metrics/spicenet_metrics.prom"
